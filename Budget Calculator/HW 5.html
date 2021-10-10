@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>HW 5</title>
+
+    <style text/css>
+        div {border: 1; width: 500px}
+        h3 {border-style: solid; margin: 0px;}
+        h1 {border-style: solid; margin: 0px;}
+
+        .Title {background-color: grey}
+        .info {background-color: rgb(190, 190, 190)}
+        .income {background-color: rgb(0, 224, 83)}
+        .spend {background-color: rgb(49, 133, 23)}
+        .total {background-color: rgb(1, 85, 25)}
+    </style>
+  </head>
+
+  <body>
+    <div class="Title">
+      <h1>Budget Calculator</h1>
+    </div>
+
+    <div class="info">
+      <h3>Customer Contact Information</h3>
+
+<script type="text/javascript">
+
+      var ConInfo = window.prompt("Enter last name:");
+      var AddyInfo = window.prompt("Enter full mailing address:(# street; city, state; zipcode)");
+      var PhoneInfo = window.prompt("Enter 10-digit phone number:");
+
+      //PhoneInfo storage
+      var PI1 = PhoneInfo.substr(0,3);
+      var PI2 = PhoneInfo.substr(3,3);
+      var PI3 = PhoneInfo.substr(6,4);
+
+      //console check
+      var ZipcodeInfo = AddyInfo.substring(AddyInfo.lastIndexOf(";"), AddyInfo.length);
+      var CityStateInfo = AddyInfo.substring(AddyInfo.indexOf(";"),AddyInfo.lastIndexOf(";"));
+      var street = AddyInfo.substring(0,AddyInfo.indexOf(";"));
+      console.log(AddyInfo.indexOf(";"));
+      console.log(AddyInfo.lastIndexOf(";"));
+      console.log(AddyInfo.length);
+      console.log(CityStateInfo);
+      console.log(street);
+      console.log(ZipcodeInfo);
+
+      document.write("<p>" + "<b>" + ConInfo + "</b>" + "</p>");
+      document.write("<p>" + street + "</p>");
+      document.write("<p>" + CityStateInfo + "</p>");
+      document.write("<p>" + ZipcodeInfo + "</p>");
+      document.write("(" + PI1 + ")" + "-" + PI2 + "-" + PI3);
+
+</script>
+    </div>
+
+<div class="income">
+  <h3>Earnings</h3>
+
+
+<script type="text/javascript">
+
+  var ctr = 0;
+  var sum = 0;
+  var earnings = 1;
+
+  do {
+    earnings =+ window.prompt("Enter earnings value (enter 0 to stop):");
+    ctr++;
+    document.write("<p>" + "$" + earnings + "</p>");
+    sum = (earnings + sum);
+    console.log(sum);
+  } while (earnings!=0);
+
+  document.write("<h3>" + "$" + sum + "</h3>")
+
+    //  var EarnVal = window.prompt("Enter earnings value (enter 0 to stop):");
+      /*do while loop*/
+    //  var i = 0; do {EarnVal} while(i>0);
+    //  var i = 0; while(i=0) {i++;};
+      /*Earnings confirmation pop-up box*/
+      var EarnConfirm = confirm("you had " +  ctr + " positive earnings entries, totaling $" + sum);
+
+</script>
+
+</div>
+
+<div class="spend">
+  <h3>Spendings</h3>
+
+<script type="text/javascript">
+
+var ctr2 = 0;
+var sum2 = 0;
+var spendings = 1;
+
+do {
+  spendings =+ window.prompt("Enter spendings value (enter 0 to stop):");
+  ctr2++;
+  document.write("<p>" + "$" + spendings + "</p>");
+  sum2 = (spendings + sum2);
+} while (spendings!=0);
+
+document.write("<h3>" + "$" + sum2 + "</h3>");
+
+  //  var EarnVal = window.prompt("Enter earnings value (enter 0 to stop):");
+    /*do while loop*/
+  //  var i = 0; do {EarnVal} while(i>0);
+  //  var i = 0; while(i=0) {i++;};
+    /*Earnings confirmation pop-up box*/
+    var spendConfirm = confirm("you had " +  ctr2 + " positive spendings entries, totaling $" + sum2);
+
+</script>
+</div>
+
+<div class="total">
+
+  <h3>Ending Balance</h3>
+
+  <script type="text/javascript">
+    var total = (sum - sum2);
+    document.write("<h3>" + "$" + total + "</h3>");
+
+    if (total>0) {
+      window.alert("Total Ending Balance is positive");
+    } else {
+      window.alert("Total Ending Balance is negative");
+    }
+
+    var reStart = window.confirm("Do you want to enter a new budget");
+    if (reStart==true) {
+      location.reload();
+    } else {
+      window.alert("Budget has been saved.");
+    }
+
+  </script>
+
+</div>
+
+  </body>
+</html>
